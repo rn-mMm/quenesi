@@ -35,7 +35,7 @@
             border-radius: 20px;
             margin-right: auto;
 
-            z-index: 9999 ;
+            z-index: 4 ;
             transform: translateZ(0);
         }
 
@@ -52,7 +52,7 @@
             box-sizing: border-box;
 
             position: relative;
-            z-index: 10;
+            z-index: 3;
         }
 
 
