@@ -7,160 +7,184 @@
     <link href=рол.png rel=icon sizes=any>
     <link href=css/all.css rel=stylesheet>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #fff8e0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
-            justify-items: center;
-            padding: 40px 50px;
-            box-sizing: border-box;
-            width: 100%;
-        }
+@font-face {
+    font-family: 'Snowstorm';
+    src: url('fonts/Snowstorm.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
 
-        .image-box {
-            width: 100%;
-            max-width: 250px;
-            padding: 12px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 20px solid transparent;
-            border-image-source: url('рол.jpg');
-            border-image-slice: 30;
-            border-image-repeat: round;
-            box-shadow: -30px 16px 10px rgba(30, 30, 30, 0.47);
-            position: relative;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff8e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
-        .image-box img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            display: block;
-        }
+body, .glow-box img {
+    user-select: text;
+    -webkit-user-select: text;
+}
 
-        .image-title {
-            text-align: center;
-            margin-top: 15px;
-            padding: 5px 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #454545;
-            word-wrap: break-word;
-            background-color: #acacac;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
+::selection {
+    background: rgb(0 0 255 / 0);
+}
 
-        .image-title a {
-            color: #454545;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
+img::selection {
+    background: rgb(0 0 255 / 0);
+}
 
-        .image-title a:hover {
-            font-size: 16px;
-            color: #303030;
-        }
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-items: center;
+    padding: 40px 50px;
+    box-sizing: border-box;
+    width: 100%;
+}
 
-        .image-title a:active {
-            font-weight: 700;
-            color: #ffffff;
-        }
+.image-box {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    background-color: transparent;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    border: 20px solid transparent;
+    border-image-source: url('рол.jpg');
+    border-image-slice: 30;
+    border-image-repeat: round;
+    box-shadow: -30px 16px 10px rgba(30, 30, 30, 0.47);
+    position: relative;
+    z-index: 1;
+}
 
-        body, .glow-box img {
-            user-select: text;
-            -webkit-user-select: text;
-        }
+.image-box img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    object-fit: normal;
+}
 
-        ::selection {
-            background: rgb(0 0 255 / 0);
-        }
+.image-title {
+    text-align: center;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #454545;
+    word-wrap: break-word;
+    background-color: #acacac;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        img::selection {
-            background: rgb(0 0 255 / 0);
-        }
+.image-title a {
+    color: #454545;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
-        .ybutton {
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 999999 !important;
-            cursor: pointer;
-            transform: translateZ(0);
-        }
+.image-title a:hover {
+    font-size: 16px;
+    color: #303030;
+}
 
-        .ybutton img {
-            width: 80px;
-            height: auto;
-            display: block;
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
+.image-title a:active {
+    font-weight: 700;
+    color: #ffffff;
+}
 
-        .ybutton:hover img {
-            transform: scale(1.15);
-            filter: brightness(1.2);
-        }
+.ybutton {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transform: translateZ(0);
+}
 
-        .ybutton:active img {
-            transform: scale(0.95);
-        }
+.ybutton img {
+    width: 80px;
+    height: auto;
+    display: block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
 
-        @media (max-width: 992px) {
-            .image-gallery {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
-        }
+.ybutton:hover img {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
 
-        @media (max-width: 768px) {
-            .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                padding: 20px 35px;
-            }
-            .image-box {
-                border-width: 12px;
-                padding: 8px;
-            }
-            .ybutton img {
-                width: 60px;
-            }
-            .gallery-container {
-                padding-top: 100px;
-            }
-        }
+.ybutton:active img {
+    transform: scale(0.95);
+}
 
-        @media (max-width: 480px) {
-            .image-gallery {
-                grid-template-columns: repeat(1, 1fr);
-                gap: 25px;
-                padding: 20px 25px;
-            }
-            .image-box {
-                max-width: 280px;
-            }
-        }
+body:has(#page-loader) .image-box,
+body:has(#page-loader) .image-box img,
+body:has(#page-loader) .ybutton {
+    z-index: -1 !important;
+    position: static !important;
+    transform: none !important;
+    pointer-events: none !important;
+}
+
+@media (max-width: 992px) {
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 35px;
+    }
+    .image-box {
+        border-width: 12px;
+        padding: 8px;
+    }
+    .ybutton img {
+        width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 25px;
+        padding: 20px 25px;
+    }
+    .image-box {
+        max-width: 280px;
+    }
+}
+
     </style>
 </head>
 <body>
