@@ -29,7 +29,7 @@ export async function onRequest(context) {
     </div>
     <style>
         .QWER1111111TY { 
-            position: fixed; 
+            position: fixed !important;
             top: 0; 
             left: 0; 
             width: 100%; 
@@ -38,7 +38,7 @@ export async function onRequest(context) {
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            z-index: 2147483647; 
+            z-index: 2147483647 !important;
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .loader-spinner { 
