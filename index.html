@@ -9,23 +9,40 @@
     <link rel=icon href=иконка.png sizes=any>
 </head>
 <body>
-<div id=playerStatus class=music-player-status
-     style="position: fixed; top: 80px; left: 50%; transform: translateX(-50%); padding: 5px 15px; font-size: 14px; z-index: 1100; display: none; background: #fff; color: #000; border: 2px solid #000;">
-    Сейчас играет: <span id=trackName>Ничего</span></div>
-<nav class=topbar><a href=#start>В начало</a><a href=#middle>В середину</a><a href=#end>В конец</a></nav>
-<img decoding=async src=quenesi.png id=myImage class=wp-image-981 width=115 sizes="(max-width: 231px) 100vw, 231px"
-     onclick="changeStyle('style2.css'), document.getElementById('myImage').src='2.png', document.getElementById('m').src='2.png'"
-     style="cursor: pointer; margin: 20px 0 20px 30px;">
-<section id=start class=section>
-    <div class=texture-rectangle>
-        <div class=image-wrapper onclick=playRandomMusic() style="cursor: pointer;"><img src=картинки/йцу.png
-                                                                                         class=img-base
-                                                                                         alt="Картинка 1"><img
-                src=картинки/pudge-dance.gif class=img-hover alt="Картинка 2"></div>
-        <div class=text-block><h1 class=text-large>я _mMm_ это моё портфолио</h1>
-            <p class=text-small> я знаю блондер фигму годот веб итак понятно и тд...</p></div>
+    <div id="playerStatus"
+         class="music-player-status"
+         style="position: fixed; top: 80px; left: 50%; transform: translateX(-50%); padding: 5px 15px; font-size: 14px; z-index: 1100; display: none; background: #fff; color: #000; border: 2px solid #000;">
+        Сейчас играет: <span id="trackName">Ничего</span>
     </div>
-</section>
+
+    <nav class="topbar">
+        <a href="#start">В начало</a>
+        <a href="#middle">В середину</a>
+        <a href="#end">В конец</a>
+    </nav>
+
+    <img decoding="async"
+         src="quenesi.png"
+         id="myImage"
+         class="wp-image-981"
+         width="115"
+         sizes="(max-width: 231px) 100vw, 231px"
+         onclick="changeStyle('style2.css'); document.getElementById('myImage').src='2.png'; document.getElementById('m').src='2.png';"
+         style="cursor: pointer; margin: 20px 0 20px 30px;"
+         alt="Сменить оформление">
+
+    <section id="start" class="section">
+        <div class="texture-rectangle">
+            <div class="image-wrapper" onclick="playRandomMusic()" style="cursor: pointer;">
+                <img src="картинки/йцу.png" class="img-base" alt="Картинка 1">
+                <img src="картинки/pudge-dance.gif" class="img-hover" alt="Картинка 2">
+            </div>
+            <div class="text-block">
+                <h1 class="text-large">я _mMm_ это моё портфолио</h1>
+                <p class="text-small">я знаю блендер фигму годот веб итак понятно и тд...</p>
+            </div>
+        </div>
+    </section>
 <p style="    font-size: 18px;
     font-weight: 600;
     color: #2c3e50;
@@ -109,9 +126,9 @@
     let currentAudio = null;
 
     const playlist = [
-        { name: "самая зугудачная песня инета", file: "музяка/1.mp3" },
-        { name: "смеш", file: "музяка/2.mp3" },
-        { name: "виюшка", file: "музяка/3.mp3" }
+        {name: "самая зугудачная песня инета", file: "музяка/1.mp3"},
+        {name: "смеш", file: "музяка/2.mp3"},
+        {name: "виюшка", file: "музяка/3.mp3"}
     ];
 
     function playRandomMusic() {
@@ -147,7 +164,7 @@
         let startX, startY;
         let shiftX, shiftY;
 
-        img.addEventListener('mousedown', function(e) {
+        img.addEventListener('mousedown', function (e) {
             if (e.button !== 0) return;
 
             startX = e.clientX;
@@ -164,7 +181,7 @@
             e.preventDefault();
         });
 
-        document.addEventListener('mousemove', function(e) {
+        document.addEventListener('mousemove', function (e) {
             if (!isDragging) return;
 
             if (Math.abs(e.clientX - startX) > 5 || Math.abs(e.clientY - startY) > 5) {
@@ -180,7 +197,7 @@
             img.style.transform = `rotate(${img.dataset.angle}deg)`;
         });
 
-        document.addEventListener('mouseup', function(e) {
+        document.addEventListener('mouseup', function (e) {
             if (!isDragging) return;
             isDragging = false;
 
@@ -191,7 +208,9 @@
             }
         });
 
-        img.ondragstart = function() { return false; };
+        img.ondragstart = function () {
+            return false;
+        };
     }
 
     const generateRetroIcons = () => {
@@ -244,7 +263,7 @@
                 }
             } while (tooClose && attempts < 60);
 
-            spawnedIcons.push({ x: posX, y: posY });
+            spawnedIcons.push({x: posX, y: posY});
 
             const randomAngle = getRandom(-45, 45);
             img.dataset.angle = randomAngle;
@@ -288,87 +307,87 @@
 </div>
 <script type=text/javascript src=https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js></script>
 <script type=text/javascript>
-        emailjs.init('z_xwGDmKpyyFor9JT');
-        const submitBtn = document.getElementById('button');
-        if (submitBtn) {
-            submitBtn.removeAttribute('disabled');
-        }
+    emailjs.init('z_xwGDmKpyyFor9JT');
+    const submitBtn = document.getElementById('button');
+    if (submitBtn) {
+        submitBtn.removeAttribute('disabled');
+    }
 </script>
 <script type=text/javascript>
-const btn = document.getElementById('button');
-const formStatus = document.getElementById('form-status');
+    const btn = document.getElementById('button');
+    const formStatus = document.getElementById('form-status');
 
-document.getElementById('form')
-    .addEventListener('submit', async function (event) {
-        event.preventDefault();
+    document.getElementById('form')
+        .addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-        const lastSend = localStorage.getItem('form_last_send');
-        const now = Date.now();
-        if (lastSend && (now - lastSend < 15000)) {
-            if (formStatus) {
-                formStatus.style.display = 'block';
-                formStatus.style.color = 'red';
-                formStatus.innerText = 'Пожалуйста, подождите 15 секунд перед следующей отправкой!';
-            }
-            return;
-        }
-
-        if (typeof grecaptcha !== 'undefined') {
-            const captchaResponse = grecaptcha.getResponse();
-            if (captchaResponse.length === 0) {
+            const lastSend = localStorage.getItem('form_last_send');
+            const now = Date.now();
+            if (lastSend && (now - lastSend < 15000)) {
                 if (formStatus) {
                     formStatus.style.display = 'block';
                     formStatus.style.color = 'red';
-                    formStatus.innerText = 'Пожалуйста, отметьте галочку "Я не робот"!';
+                    formStatus.innerText = 'Пожалуйста, подождите 15 секунд перед следующей отправкой!';
                 }
                 return;
             }
-        } else {
+
+            if (typeof grecaptcha !== 'undefined') {
+                const captchaResponse = grecaptcha.getResponse();
+                if (captchaResponse.length === 0) {
+                    if (formStatus) {
+                        formStatus.style.display = 'block';
+                        formStatus.style.color = 'red';
+                        formStatus.innerText = 'Пожалуйста, отметьте галочку "Я не робот"!';
+                    }
+                    return;
+                }
+            } else {
+                if (formStatus) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = 'red';
+                    formStatus.innerText = 'Ошибка: капча от Google не загрузилась на страницу. Перезагрузите сайт.';
+                }
+                return;
+            }
+
+            const formElement = this;
+
+            btn.disabled = true;
+            btn.value = 'Отправка...';
             if (formStatus) {
                 formStatus.style.display = 'block';
-                formStatus.style.color = 'red';
-                formStatus.innerText = 'Ошибка: капча от Google не загрузилась на страницу. Перезагрузите сайт.';
-            }
-            return;
-        }
-
-        const formElement = this;
-
-        btn.disabled = true;
-        btn.value = 'Отправка...';
-        if (formStatus) {
-            formStatus.style.display = 'block';
-            formStatus.style.color = 'black';
-            formStatus.innerText = 'Отправка...';
-        }
-
-        const serviceID = 'service_botyk3h';
-        const templateID = 'template_w1k7ku4';
-
-        try {
-            await emailjs.sendForm(serviceID, templateID, formElement);
-
-            if (formStatus) {
-                formStatus.style.color = 'green';
-                formStatus.innerText = 'Спасибо! Ваше сообщение успешно отправлено.';
+                formStatus.style.color = 'black';
+                formStatus.innerText = 'Отправка...';
             }
 
-            localStorage.setItem('form_last_send', Date.now());
+            const serviceID = 'service_botyk3h';
+            const templateID = 'template_w1k7ku4';
 
-            formElement.reset();
-            grecaptcha.reset();
+            try {
+                await emailjs.sendForm(serviceID, templateID, formElement);
 
-        } catch (err) {
-            if (formStatus) {
-                formStatus.style.color = 'red';
-                formStatus.innerText = 'Ошибка отправки! Попробуйте позже.';
+                if (formStatus) {
+                    formStatus.style.color = 'green';
+                    formStatus.innerText = 'Спасибо! Ваше сообщение успешно отправлено.';
+                }
+
+                localStorage.setItem('form_last_send', Date.now());
+
+                formElement.reset();
+                grecaptcha.reset();
+
+            } catch (err) {
+                if (formStatus) {
+                    formStatus.style.color = 'red';
+                    formStatus.innerText = 'Ошибка отправки! Попробуйте позже.';
+                }
+                console.error('EmailJS Error:', err);
+            } finally {
+                btn.disabled = false;
+                btn.value = 'Озвучить';
             }
-            console.error('EmailJS Error:', err);
-        } finally {
-            btn.disabled = false;
-            btn.value = 'Озвучить';
-        }
-    });
+        });
 
 </script>
 </body>

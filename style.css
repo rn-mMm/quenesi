@@ -89,10 +89,9 @@
             padding: 15px;
         }
 
-
-            .btn-icon {
-              width: 48px;
-              height: 48px;
+        .btn-icon {
+            width: 48px;
+            height: 48px;
         }
 
         .texture-rectangle .image-wrapper {
@@ -131,9 +130,7 @@
         .texture-rectangle:hover .img-hover {
             opacity: 1;
         }
-        .texture-rectangle:hover .img-base {
-            opacity: 0;
-        }
+
 
 
         @keyframes smoothFlyIn {
@@ -438,7 +435,6 @@
         @media (max-width: 768px) {
             .topbar {
                 display: none;
-                  position: absolute;
                   position: absolute;
                   width: 1px;
                   height: 1px;
