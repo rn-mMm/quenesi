@@ -7,7 +7,7 @@ export async function onRequest(context) {
     const metaTags = `
     <meta property="og:site_name" content="GUENESI">
     <meta property="og:title" content="Сайт с проектами (моими)">
-    <meta property="og:description" content="Портфолио _mMm_ - моделирование, фигма, веб-разработка.">
+    <meta property="og:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]">
     <meta property="og:url" content="https://quenesi.pages.dev/">
     <meta property="og:type" content="website">
 
@@ -19,10 +19,10 @@ export async function onRequest(context) {
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Сайт с проектами (моими)">
-    <meta name="twitter:description" content="Портфолио _mMm_ - моделирование, фигма, веб-разработка.">
+    <meta name="twitter:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]">
     <meta name="twitter:image" content="https://quenesi.pages.dev/tg.png">
     `;
-    
+
     const loaderHTML = `
     <div id="page-loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #1a2639; display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.4s ease, visibility 0.4s ease;">
         <div class="loader-spinner"></div>
