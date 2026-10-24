@@ -24,13 +24,38 @@ export async function onRequest(context) {
     `;
 
     const loaderHTML = `
-    <div id="page-loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #1a2639; display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.4s ease, visibility 0.4s ease;">
+    <div id="page-loader" class="QWER1111111TY" >
         <div class="loader-spinner"></div>
     </div>
     <style>
-        .loader-spinner { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.1); border-top: 5px solid #ffcc00; border-radius: 50%; animation: spin 1s linear infinite; }
+        .QWER1111111TY { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #1a2639; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 999999999999999999999999999999; 
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .loader-spinner { 
+            width: 50px; 
+            height: 50px; 
+            border: 5px solid rgba(255,255,255,0.1); 
+            border-top: 5px solid #ffcc00; 
+            border-radius: 50%; 
+            animation: spin 1s linear infinite;
+        }
+        
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .loader-fade-out { opacity: 0 !important; visibility: hidden !important; }
+        
+        .loader-fade-out { 
+            opacity: 0 !important;
+            visibility: hidden !important;
+         }
     </style>
     `;
 
