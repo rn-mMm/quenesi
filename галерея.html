@@ -7,7 +7,7 @@
     <link href=рол.png rel=icon sizes=any>
     <link href=css/all.css rel=stylesheet>
     <style>
-        body {
+    body {
         margin: 0;
         padding: 0;
         background-color: #fff8e0;
@@ -62,7 +62,7 @@
     }
 
 
-    .image-title {
+    .image-title , a{
         text-align: center;
         margin-top: 15px;
         padding: 5px 10px;
@@ -72,8 +72,17 @@
         word-wrap: break-word;
         background-color: #acacac;
         border-radius: 10px;
+        transition: all 0.3s ease;
     }
+    a:hover{
+        font-size: 16px;
+        color: #303030;
 
+    }
+    a:active {
+        font-weight: 700;
+        color: #ffffff;
+    }
     body, .glow-box img {
         user-select: text;
         -webkit-user-select: text;
@@ -81,7 +90,6 @@
 
     ::selection {
         background: rgb(0 0 255 / 0);
-        color: rgb(255 0 0 / 0);
     }
     img::selection {
         background: rgb(0 0 255 / 0);
@@ -157,7 +165,7 @@
 <body>
 <div class=image-gallery>
     <div class=image-box><img alt="Картинка 1" src=галерея/1.03.25.jpg>
-        <div class=image-title>01-03-1025</div>
+        <div class=image-title>01-03-2025</div>
     </div>
     <div class=image-box><img alt="Картинка 2" src=галерея/2025-06-24.jpg>
         <div class=image-title>06-24-2025</div>
@@ -205,10 +213,16 @@
         <div class=image-title>01-05-2026</div>
     </div>
     <div class=image-box><img alt="Картинка 24" src=галерея/‎12-19‎-2025.png>
-        <div class=image-title>12-19‎-2025</div>
+        <div class=image-title>12-19-2025</div>
     </div>
     <div class=image-box><img alt="Картинка 25" src="галерея/‎27. 06.‎2026.jpg">
-        <div class=image-title>‎27. 06.‎2026</div>
+        <div class=image-title>27.06.2026</div>
+    </div>
+    <div class=image-box><img alt="Картинка 26" src="галерея/2026-19-10.png"/>
+        <div class=image-title><a href="галерея/моделька.blend" download="моделька.blend" >19-10-2026</a></div>
+    </div>
+    <div class=image-box><img alt="Картинка 27" title="Переделка в блендоре обложки альбома &quot;В темноте&quot; ⁿᵒᵍᵘ ˢᵛᵉˡᵒ " src="галерея/2026-22-08.png">
+        <div class=image-title >22-08-2026</div>
     </div>
 </div>
 <button class=ybutton onclick="window.location.href='index.html';"><img src=jkl.png></button>
