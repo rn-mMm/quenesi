@@ -8,11 +8,11 @@ export async function onRequest(context) {
     <meta property="og:site_name" content="GUENESI">
     <meta property="og:title" content="Сайт с проектами (моими)">
     <meta property="og:description" content="Портфолио _mMm_ - моделирование, фигма, веб-разработка.">
-    <meta property="og:url" content="https://pages.dev">
+    <meta property="og:url" content="https://quenesi.pages.dev/">
     <meta property="og:type" content="website">
 
-    <meta property="og:image" content="https://pages.devtg.png">
-    <meta property="og:image:secure_url" content="https://pages.devtg.png">
+    <meta property="og:image" content="https://quenesi.pages.dev/tg.png">
+    <meta property="og:image:secure_url" content="https://quenesi.pages.dev/tg.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
@@ -20,9 +20,9 @@ export async function onRequest(context) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Сайт с проектами (моими)">
     <meta name="twitter:description" content="Портфолио _mMm_ - моделирование, фигма, веб-разработка.">
-    <meta name="twitter:image" content="https://pages.devtg.png">
+    <meta name="twitter:image" content="https://quenesi.pages.dev/tg.png">
     `;
-
+    
     const loaderHTML = `
     <div id="page-loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #1a2639; display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.4s ease, visibility 0.4s ease;">
         <div class="loader-spinner"></div>
