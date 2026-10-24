@@ -37,5 +37,8 @@
     "95css.scss",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "nextjs-toploader": "^3.9.17"
+  }
 }
