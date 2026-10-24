@@ -34,7 +34,7 @@ export async function onRequest(context) {
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: #1a2639; 
+            background-color: #4376dc; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -44,8 +44,8 @@ export async function onRequest(context) {
         .loader-spinner { 
             width: 50px; 
             height: 50px; 
-            border: 5px solid rgba(255,255,255,0.1); 
-            border-top: 5px solid #ffcc00; 
+            border: 5px solid rgb(43 74 142); 
+            border-top: 5px solid #ffb700; 
             border-radius: 50%; 
             animation: spin 1s linear infinite;
         }
