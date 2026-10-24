@@ -38,7 +38,7 @@ export async function onRequest(context) {
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            z-index: 999999999999999999999999999999; 
+            z-index: 2147483647; 
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .loader-spinner { 
