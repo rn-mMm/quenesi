@@ -498,10 +498,28 @@
     }
 
     .topbar {
-        display: none;
-        position: absolute;
+
+        height: auto;
+        padding: 10px 5px;
+
+        outline: 3.5px dashed rgb(0 0 0 / 0.8);
+        box-shadow: 6.5px 6.5px 0px rgb(32 32 32);
+        border-radius: 12px;
+
+        flex-wrap: wrap;
+        gap: 15px;
+        box-sizing: border-box;
     }
-    
+
+    .topbar a {
+        font-weight: 580;
+        color: rgb(0 0 0 / 0.8);
+        padding: 8px 12px;
+        font-size: 14px;
+        outline: 3.5px dashed rgb(0 0 0 / 0.8);
+        box-shadow: 6.5px 6.5px 0px rgb(32 32 32);
+    }
+
 
 
     .texture-rectangle {
