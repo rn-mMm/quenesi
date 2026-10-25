@@ -50,6 +50,7 @@ export async function onRequest(context) {
         }
         
         .animated-element {
+          transform: scale(0.8);
           animation: flip 2s linear infinite normal none;
         }
         
