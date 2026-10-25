@@ -36,12 +36,25 @@ export async function onRequest(context) {
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: #fff8e0; 
+            background: linear-gradient(-45deg, #fff8e0, #fdf1cb, #fffbf0);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;            
             display: flex; 
             justify-content: center; 
             align-items: center; 
             z-index: 2147483647 !important;
             transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
         @keyframes flip {
           0% { transform: perspective(400px) rotateY(0); }
