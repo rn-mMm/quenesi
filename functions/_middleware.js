@@ -25,7 +25,9 @@ export async function onRequest(context) {
 
     const loaderHTML = `
     <div id="page-loader" class="QWER1111111TY" >
-        <div class="loader-spinner"></div>
+        <div class="animated-element">
+          <img src="../картинки/pfuheibr.svg" />
+        </div>
     </div>
     <style>
         .QWER1111111TY { 
@@ -34,20 +36,21 @@ export async function onRequest(context) {
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: #4376dc; 
+            background-color: #fff8e0; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             z-index: 2147483647 !important;
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        .loader-spinner { 
-            width: 50px; 
-            height: 50px; 
-            border: 5px solid rgb(43 74 142); 
-            border-top: 5px solid #ffb700; 
-            border-radius: 50%; 
-            animation: spin 1s linear infinite;
+        @keyframes flip {
+          0% { transform: perspective(400px) rotateY(0); }
+          40% { transform: perspective(400px) rotateY(-180deg); }
+          100% { transform: perspective(400px) rotateY(-360deg); }
+        }
+        
+        .animated-element {
+          animation: flip 2s linear infinite normal none;
         }
         
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
