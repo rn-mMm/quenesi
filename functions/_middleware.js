@@ -65,13 +65,19 @@ export async function onRequest(context) {
 
     const loaderScript = `
     <script>
-        window.addEventListener('load', function () {
-            var loader = document.getElementById('page-loader');
-            if (loader) {
-                loader.classList.add('loader-fade-out');
-                setTimeout(function() { loader.remove(); }, 400);
-            }
-        });
+        (function() {
+            var startTime = Date.now();
+            window.addEventListener('load', function () {
+                var loader = document.getElementById('page-loader');
+                if (!loader) return;
+                var elapsedTime = Date.now() - startTime;
+                var remainingTime = Math.max(0, 200 - elapsedTime);
+                setTimeout(function() {
+                    loader.classList.add('loader-fade-out');
+                    setTimeout(function() { loader.remove(); }, 400);
+                }, remainingTime);
+            });
+        })();
     </script>
     `;
 
