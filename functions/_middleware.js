@@ -73,6 +73,13 @@ export async function onRequest(context) {
             opacity: 0 !important;
             visibility: hidden !important;
          }
+        @media (max-width: 768px) {
+        
+            .animated-element {
+                transform: scale(0.5);
+            }
+            
+        }
     </style>
     `;
 
