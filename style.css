@@ -441,16 +441,15 @@
             }
         }
         @media (max-width: 768px) {
+
+            html, body {
+                overflow-x: hidden;
+            }
+
+
             .topbar {
                 display: none;
-                  position: absolute;
-                  width: 1px;
-                  height: 1px;
-                  margin: -1px;
-                  padding: 0;
-                  overflow: hidden;
-                  clip: rect(0, 0, 0, 0);
-                  border: 0;
+                position: absolute;
             }
 
 

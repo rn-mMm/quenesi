@@ -315,31 +315,51 @@
         p {
           cursor: zoom-in;
         }
-.shelf1 {
-    display: grid !important; grid-template-columns: repeat(5, 1fr) !important;
-    padding: 15px; background-color: #0b0b0b;
-    border: 4px solid #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-}
-.shelf2 {
-    display: grid !important; grid-template-columns: repeat(5, 1fr) !important;
-    padding: 15px; background: linear-gradient(135deg, #001a4d 0%, #001133 100%);
-    border: 2px solid; border-color: #fff #808080 #808080 #fff;
-}
-.shelf3 { display: flex !important; justify-content: center; padding: 20px; }
-.shelf-1tn {
-    font-size: 54px; color: #000; background-color: #ff3333;
-    padding: 15px 60px; border: 4px solid #000;
-    box-shadow: 10px 10px 0px #000;
-}
-.shelf-1tn:active { transform: translate(10px, 10px); box-shadow: none; }
+        .shelf1 {
+            display: grid !important; grid-template-columns: repeat(5, 1fr) !important;
+            padding: 15px; background-color: #0b0b0b;
+            border: 4px solid #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        .shelf2 {
+            display: grid !important; grid-template-columns: repeat(5, 1fr) !important;
+            padding: 15px; background: linear-gradient(135deg, #001a4d 0%, #001133 100%);
+            border: 2px solid; border-color: #fff #808080 #808080 #fff;
+        }
+        .shelf3 { display: flex !important; justify-content: center; padding: 20px; }
+        .shelf-1tn {
+            font-size: 54px; color: #000; background-color: #ff3333;
+            padding: 15px 60px; border: 4px solid #000;
+            box-shadow: 10px 10px 0px #000;
+        }
+        .shelf-1tn:active { transform: translate(10px, 10px); box-shadow: none; }
 
 
-@media (max-width: 768px) {
-    .topbar { flex-wrap: wrap !important; }
-    .texture-rectangle { flex-direction: column !important; height: auto !important; }
-    .texture-rectangle img { width: 60% !important; }
-    .shelf, .shelf1, .shelf2 { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-    .shelf-1tn { font-size: 26px !important; padding: 12px 30px !important; }
-}
+        @media (max-width: 768px) {
+
+            html, body {
+                overflow-x: hidden;
+            }
+            
+            .topbar {
+                display: none;
+                position: absolute;
+            }
+
+            .texture-rectangle {
+                flex-direction: column !important;
+                height: auto !important;
+            }
+            .texture-rectangle img {
+                width: 60% !important;
+            }
+            .shelf, .shelf1, .shelf2 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+            .shelf-1tn {
+                font-size: 26px !important;
+                padding: 12px 30px !important;
+            }
+        }
 
 

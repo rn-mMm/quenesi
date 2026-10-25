@@ -493,22 +493,15 @@
 @media (max-width: 768px) {
 
 
-    .topbar {
-        left: 2% !important;
-        width: 96% !important;
-        height: auto !important;
-        padding: 10px 5px !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-        clip-path: none !important;
-        border-radius: 4px !important;
+    html, body {
+        overflow-x: hidden;
     }
 
-    .topbar a {
-        padding: 6px 10px !important;
-        font-size: 11px !important;
-        letter-spacing: 1px !important;
+    .topbar {
+        display: none;
+        position: absolute;
     }
+    
 
 
     .texture-rectangle {
