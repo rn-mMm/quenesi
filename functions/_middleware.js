@@ -5,26 +5,29 @@ export async function onRequest(context) {
   if (contentType && contentType.includes("text/html")) {
 
     const metaTags = `
-    <meta property="og:site_name" content="GUENESI">
-    <meta property="og:title" content="Сайт с проектами (моими)">
-    <meta property="og:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]">
-    <meta property="og:url" content="https://quenesi.pages.dev/">
-    <meta property="og:type" content="website">
-
-    <meta property="og:image" content="https://quenesi.pages.dev/tg.png">
-    <meta property="og:image:secure_url" content="https://quenesi.pages.dev/tg.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Сайт с проектами (моими)">
-    <meta name="twitter:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]">
-    <meta name="twitter:image" content="https://quenesi.pages.dev/tg.png">
+      <title>Сайт с проектами (моими)</title>
+      <meta name="description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]" />
+      <link rel="canonical" href="https://quenesi.pages.dev/" />
+      
+      <meta property="og:title" content="Сайт с проектами (моими)" />
+      <meta property="og:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://quenesi.pages.dev/" />
+      <meta property="og:image" content="https://quenesi.pages.dev/tg.png" />
+      <meta property="og:image:alt" content="Сайт с проектами (моими)" />
+      <meta property="og:site_name" content="GUENESI" />
+      <meta property="og:locale" content="en_US" />
+      
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Сайт с проектами (моими)" />
+      <meta name="twitter:description" content="[ВСТАВЬТЕ_СЮДА_ТЕКСТ]" />
+      <meta name="twitter:image" content="https://quenesi.pages.dev/tg.png" />
+      <meta name="twitter:image:alt" content="Сайт с проектами (моими)" />
+      <meta name="twitter:site" content="@coddy_tech" />
     `;
 
     const loaderHTML = `
-    <div id="page-loader" class="QWER1111111TY" >
+    <div id="page-loader" class="QWER1111111TY" > 
         <div class="animated-element">
           <img src="../картинки/pfuheibr.svg" />
         </div>
