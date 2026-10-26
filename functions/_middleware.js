@@ -90,16 +90,30 @@ export async function onRequest(context) {
     <script>
         (function() {
             var startTime = Date.now();
-            window.addEventListener('load', function () {
-                var loader = document.getElementById('page-loader');
-                if (!loader) return;
-                var elapsedTime = Date.now() - startTime;
-                var remainingTime = Math.max(0, 200 - elapsedTime);
-                setTimeout(function() {
-                    loader.classList.add('loader-fade-out');
-                    setTimeout(function() { loader.remove(); }, 400);
-                }, remainingTime);
-            });
+            const pageName = window.location.pathname.split('/').pop();
+            if (pageName === "фигма.html" || pageName === "о_проекте.html" || pageName === "галерея.html") {
+              window.addEventListener('load', function () {
+                  var loader = document.getElementById('page-loader');
+                  if (!loader) return;
+                  var elapsedTime = Date.now() - startTime;
+                  var remainingTime = Math.max(0, 200 - elapsedTime);
+                  setTimeout(function() {
+                      loader.classList.add('loader-fade-out');
+                      setTimeout(function() { loader.remove(); }, 400);
+                  }, remainingTime);
+              });
+            } else {
+              window.addEventListener('DOMContentLoaded', function () {
+                  var loader = document.getElementById('page-loader');
+                  if (!loader) return;
+                  var elapsedTime = Date.now() - startTime;
+                  var remainingTime = Math.max(0, 200 - elapsedTime);
+                  setTimeout(function() {
+                      loader.classList.add('loader-fade-out');
+                      setTimeout(function() { loader.remove(); }, 400);
+                  }, remainingTime);
+              });                
+            }
         })();
     </script>
     `;
