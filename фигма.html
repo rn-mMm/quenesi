@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Quenesi/фигма</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #1e1e1e;
+            font-family: 'Lato', sans-serif;
+            color: #171019;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('fonts/Lato-Medium.ttf') format('TrueType');
+        }
+        .qwer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            cursor: grab;
+            touch-action: none;
+            display: block;
+        }
+        .qwer:active {
+            cursor: grabbing;
+        }
+        .zoom-image {
+            width: 100%;
+            height: 100%;
+            max-width: none !important;
+            max-height: none !important;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+            will-change: transform;
+            z-index: -100;
+        }
+        @font-face {
+            font-family: 'Snowstorm';
+            src: url('fonts/Snowstorm.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        .start{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('wave-haikei.svg');
+            background-color: #FFF8E0;
+            place-items: center;
+            text-align: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover;
+            z-index: 10;
+            position: fixed;
+        }
+        .ybutton {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            transform: translateZ(0);
+        }
+        .ybutton img {
+            width: 80px;
+            height: auto;
+            display: block;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+        .ybutton:hover img {
+            transform: scale(1.15);
+            filter: brightness(1.2);
+        }
+        .ybutton:active img {
+            transform: scale(0.95);
+        }
+        .сас {
+          width: 130px;
+          height: 40px;
+          border-radius: 5px;
+          padding: 10px 25px;
+          font-weight: 500;
+          background: transparent;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          display: inline-block;
+          box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+           7px 7px 20px 0px rgba(0,0,0,.1),
+           4px 4px 5px 0px rgba(0,0,0,.1);
+          outline: none;
+          border: none;
+          background: rgb(33 127 251);
+          background: linear-gradient(0deg, rgb(33 109 251) 0%, rgb(76 155 234) 100%);
+          color: #fff;
+          overflow: hidden;
+          letter-spacing: -0.5px;
+        }
+        .сас:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+        .сас:before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            top: -180px;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #fff;
+            animation: shiny-btn1 3s ease-in-out infinite;
+        }
+        .сас:hover{
+          opacity: .7;
+        }
+        .сас:active{
+          box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                      -4px -4px 6px 0 rgba(116, 125, 136, .2),
+            inset -4px -4px 6px 0 rgba(255,255,255,.2),
+            inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+        }
+        .сус{
+          font-family: "Amatic SC", sans-serif;
+          font-weight: 700;
+          font-style: normal;
+          font-size: 4rem;
+        }
+        .сырс{
+            position: absolute;
+            color: #f1f1f1;
+            top: 0;
+            right: 3%;
+            z-index: 5;
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+            mix-blend-mode: difference;
+            font-size: 3rem;
+        }
+        p {
+          text-indent: 5px;
+          font-weight: 500;
+          letter-spacing: 2px;
+        }
+        #sxs, .start, imgNode.parentElement {
+            isolation: auto;
+        }
+        .game-cat {
+            mix-blend-mode: difference;
+            pointer-events: auto; /* чтобы кликался */
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 4;
+            color: #f1f1f1;
+            user-select: none;
+            -webkit-user-drag: none;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .ybutton img {
+                width: 60px;
+            }
+            .сырс {
+                top: 85%;
+                right: auto;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2.5rem;
+                width: max-content;
+            }
+            .game-cat {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+</head>
+<body>
+    <div class="start">
+        <h1 class="сус" >Привет!</h1>
+        <p>Tут можно рассмотреть мои проекты в фигме</p>
+        <p>В Виде миниигры где надо находить котиков</p>
+        <p>Каждый котик-плюс очко</p>
+        <p></p>
+        <button class="сас" id="сас" >Попробовать</button>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+            <h1 class="сус сырс" id="scoreCounter">Количество котов: 0</h1>
+
+    <div class="qwer" id="sxs">
+        <img src="картинки/Frame 115.webp" decoding="async" class="zoom-image" id="image">
+    </div>
+
+    <button class="ybutton" onclick="window.location.href='index.html';">
+        <img src="jkl.png">
+    </button>
+
+<script>
+const button = document.getElementById('сас');
+const startWindow = document.querySelector('.start');
+const imgNode = document.getElementById('image');
+const counter = document.getElementById('scoreCounter');
+
+const zoomContainer = imgNode.parentElement;
+
+const каличество_пушинов = 5;
+let score = localStorage.getItem('количество_кошар');
+
+let savedCoordinates = localStorage.getItem('координаты_котов');
+let корденаты = savedCoordinates ? JSON.parse(savedCoordinates) : [];
+
+let savedPanZoom = localStorage.getItem('позиция_картинки');
+let панорама = savedPanZoom ? JSON.parse(savedPanZoom) : null;
+
+button.addEventListener('click', () => {
+    startWindow.remove();
+    initZoom();
+    createCats();
+    if (score !== null) {
+        score = Number(score);
+    } else {
+        score = 0;
+        localStorage.setItem('количество_кошар', score);
+    }
+    counter.textContent = `Количество котов: ${score}`;
+});
+
+const pz = panzoom(zoomContainer, {
+    maxZoom: 8.5,
+    minZoom: 1,
+    bounds: true,
+    boundsPadding: 0.3,
+    smoothScroll: true
+});
+
+pz.on('transform', () => {
+    const tr = pz.getTransform();
+
+
+    const currentPosition = { x: tr.x, y: tr.y, scale: tr.scale };
+    localStorage.setItem('позиция_картинки', JSON.stringify(currentPosition));
+});
+
+function initZoom() {
+    requestAnimationFrame(() => {
+        if (панорама) {
+            pz.zoomAbs(0, 0, панорама.scale);
+            pz.moveTo(панорама.x, панорама.y);
+        } else {
+            if (window.innerWidth >= 768) {
+                pz.zoomAbs(300, 540, 2);
+            } else {
+                pz.zoomAbs(50, 300, 3);
+            }
+        }
+    });
+}
+
+imgNode.onload = () => {
+    initZoom();
+};
+if (imgNode.complete) {
+    imgNode.onload();
+}
+
+function createCats() {
+    const oldCat = document.getElementById('catBox');
+    if (oldCat) oldCat.remove();
+
+    const catBox = document.createElement('div');
+    catBox.id = 'catBox';
+    catBox.style.position = 'absolute';
+    catBox.style.width = '100%';
+    catBox.style.height = '100%';
+    catBox.style.top = '0';
+    catBox.style.left = '0';
+    catBox.style.pointerEvents = 'none';
+
+    zoomContainer.appendChild(catBox);
+
+
+
+    for (let i = 0; i < каличество_пушинов; i++) {
+        const cat = document.createElement('img');
+        cat.src = 'картинки/geibyec.svg';
+        cat.className = 'game-cat';
+        cat.style.position = 'absolute';
+        cat.style.display = 'block';
+        cat.style.pointerEvents = 'auto';
+        cat.style.transform = 'translate(-50%, -50%)';
+
+        cat.dataset.index = i;
+
+        if (корденаты[i]) {
+            cat.dataset.x = корденаты[i].x;
+            cat.dataset.y = корденаты[i].y;
+            cat.style.left = `${корденаты[i].x * 100}%`;
+            cat.style.top = `${корденаты[i].y * 100}%`;
+        } else {
+            cat.dataset.x = '0.5';
+            cat.dataset.y = '0.5';
+            moveCat(cat, true);
+        }
+
+        cat.addEventListener('pointerdown', (e) => {
+            e.stopPropagation();
+            score++;
+            localStorage.setItem('количество_кошар', score);
+            counter.textContent = `Количество котов: ${score}`;
+            moveCat(cat);
+        });
+
+        catBox.appendChild(cat);
+    }
+}
+
+function moveCat(cat, isFirst = false) {
+    let oldX = parseFloat(cat.dataset.x);
+    let oldY = parseFloat(cat.dataset.y);
+    let catIndex = parseInt(cat.dataset.index);
+    let newX, newY, dist;
+    let attempts = 0;
+
+    do {
+        newX = 0.1 + Math.random() * 0.8;
+        newY = 0.1 + Math.random() * 0.8;
+        dist = Math.hypot(newX - oldX, newY - oldY);
+
+        attempts++;
+
+        if (!isFirst && dist < 0.25) {
+            continue;
+        }
+        break;
+    } while (attempts < 100);
+
+    cat.dataset.x = newX;
+    cat.dataset.y = newY;
+    cat.style.left = `${newX * 100}%`;
+    cat.style.top = `${newY * 100}%`;
+
+    корденаты[catIndex] = { x: newX, y: newY };
+    localStorage.setItem('координаты_котов', JSON.stringify(корденаты));
+}
+
+
+</script>
+</body>
+</html>
