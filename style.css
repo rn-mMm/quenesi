@@ -7,7 +7,10 @@
             font-weight: bold;
             font-style: normal;
         }
-
+        .shelf-1tn:active {
+          box-shadow: 4px 4px 0px #202020;
+          transform: translate(11px, 11px);
+        }
 
 
         body {
