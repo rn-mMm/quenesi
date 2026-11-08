@@ -41,8 +41,7 @@ body {
         width: 80px;
         height: auto;
         display: block;
-        transition: transform 0.2s ease, filter 0.2s ease;
-
+        transition: all 0.3s ease-out;
     }
 
     .ybutton:hover img {
@@ -291,8 +290,8 @@ body {
 <button onclick="window.location.href='index.html';" class=ybutton><img src=jkl.png alt=Назад></button>
 <div class=glow-container>
     <div class=purpleop-box>
-        <!--<a href="?project=ЕКОСЕСТЕМА КРАСНЫХ ДОМОВ" id=btn-red class=nav-link>Экосистема Красных Домов
-        </a><a href="?project=геимбой" id=btn-gb class=nav-link>Геймбой: Трёхглавие</a> -->
+        <a href="?project=расширения" id=btn-red class=nav-link>Расширения     </a>
+        <a href="?project=геимбой" id=btn-gb class=nav-link>Геймбой: Трёхглавие</a>
     </div>
 </div>
 <div class=main-interface>
@@ -316,14 +315,10 @@ if (window.innerWidth <= 768) {
 
 
 const projectsDatabase = {
-  "ЕКОСЕСТЕМА КРАСНЫХ ДОМОВ": {
-    title: "ЕКОСЕСТЕМА КРАСНЫХ ДОМОВ",
-    desc: "Интерактивная карта, отображающая доступные для аренды реальные «красные дома»." +
-        " Аренда осуществляется за внутреннюю виртуальную валюту. Игровую валюту получаешь за время в приложении и в мини-игрax. " +
-        "Сама мини-игра — это игра, где ты за 2 фракции: «Сапёра» и китайской штуки, где закрашиваешь клеточки, буду называть{<a href='?project=дяхз' class='project-link'>дяхз</a>}" +
-        " Ты за их валюту можешь взять территорию пустую и создать головоломку: если «Сапёр», то расставить мины, а если <a href='?project=дяхз' class='project-link'>дяхз</a> — чёрные квадраты. А чтобы сделать территорию ничьей, " +
-        "надо решить головоломку. Деньги получаешь от количества игр на сайтах «Сапёра» - <a href='https://minesweeper.online' target='_blank' class='project-link'>minesweeper.online</a>, а из <a href='?project=дяхз' class='project-link'>дяхз</a> - <a href='https://puzzle-nonograms.com' target='_blank' class='project-link'>puzzle-nonograms.com</a>, проведённого времени внутри приложения и побед в мини-играх.",
-    stage: "Отмена",
+  "расширения": {
+    title: "расширения",
+    desc: "НУ раширения для браузера (которые улутшают жизнь)",
+    stage: "Первые нароботки",
     icon: "2.png",
     buttonId: "btn-red"
   },
@@ -332,7 +327,7 @@ const projectsDatabase = {
     desc: "Эта игра — это такой гибрид, вроде старых портативок Game & Watch. Ты" +
         " играешь за Марио и Clamper, где уровни переключаются по очереди, а босы - как в Donkey Kong Junior." +
         " Графика сделана в стиле первого Game Boy с треугольниками.",
-    stage: "Первые билды",
+    stage: "Первые билды (полузаброшен)",
     icon: "2.png",
     buttonId: "btn-gb"
   },
@@ -343,21 +338,14 @@ const projectsDatabase = {
     icon: "2.png",
     buttonId: "btn-gb"
   },
-  "дяхз": {
-    title: "¯\\_(ツ)_/¯",
-    desc: "даях...знаю",
-    stage: "¯\\_(ツ)_/¯",
-    icon: "images.png",
-  }
 };
-
     const defaultProject = {
       title: "ты из матрицы",
       desc: "чё ты делаеш тут",
       stage: "Техподдержка(нету)",
       icon: "2.png",
       buttonId: null
-    };
+    }
 
   function initDynamicInterface() {
     const urlParams = new URLSearchParams(window.location.search);

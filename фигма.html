@@ -87,7 +87,7 @@
             width: 80px;
             height: auto;
             display: block;
-            transition: transform 0.2s ease, filter 0.2s ease;
+            transition: all 0.3s ease-out;
         }
         .ybutton:hover img {
             transform: scale(1.15);
@@ -162,7 +162,7 @@
         }
         p {
           text-indent: 5px;
-          font-weight: 500;
+          font-weight: 550;
           letter-spacing: 2px;
         }
         #sxs, .start, imgNode.parentElement {
@@ -180,6 +180,31 @@
             user-select: none;
             -webkit-user-drag: none;
             display: none;
+        }
+        .капучинатор{
+          position: absolute;
+          bottom: 10%;
+          justify-content: center;
+          transform: translateX(-50%);
+          left: 50%;
+          color: #2b1c2e;
+          text-indent: 8px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          transition: all 0.3s ease-out;
+          text-decoration: none;
+
+
+        }
+        .капучинатор:hover{
+            color: #0066ff;
+            text-indent: 18px;
+
+        }
+        .капучинатор:active{
+            color: #000000;
+            text-indent: 18px;
+
         }
         @media (max-width: 768px) {
             .ybutton img {
@@ -213,6 +238,7 @@
         <p></p>
         <p></p>
         <p></p>
+        <a class="капучинатор" id="капучинатор" href="картинки/Frame 115 для мощьных пк.webp">посмотреть картинку без мини игры</a>
     </div>
             <h1 class="сус сырс" id="scoreCounter">Количество котов: 0</h1>
 
